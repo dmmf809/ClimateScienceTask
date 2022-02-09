@@ -36,6 +36,7 @@
   font-weight: 600;
   color: #818181;
   text-align: center;
+  padding: 0px 50px;
   animation: fadein 10s infinite;
   animation-fill-mode: both;
 }
@@ -118,29 +119,24 @@
 }
 
 .choices input[type='radio']:checked::before {
-  animation: answer 8s;
-  animation-delay: 12s;
+  animation: answer 10s;
   animation-iteration-count: infinite;
 }
 
 @keyframes answer {
   0%,
-  20% {
+  50% {
     transform: scale(0);
   }
-  30%,
   70%,
-  90% {
-    transform: scale(1);
-  }
   100% {
-    transform: scale(0);
+    transform: scale(1);
   }
 }
 
 .card {
   margin: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   text-decoration: none;
   border: 0.5px solid #6231ec;
   border-radius: 74px;
