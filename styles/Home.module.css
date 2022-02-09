@@ -12,105 +12,139 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.fade {
+  animation-fill-mode: both;
+  animation: 10s fadeout;
+  animation-iteration-count: infinite;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+@keyframes fadeout {
+  60%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
+.question {
   margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+  line-height: 21px;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  color: #818181;
   text-align: center;
+  animation: fadein 10s infinite;
+  animation-fill-mode: both;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  10%,
+  20%,
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.choices {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
-.grid {
+.choices li {
+  height: 70px;
+  border-radius: 69px;
+  box-shadow: 0px 5px 19px 0px #2a2b6833;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6231ec;
+  animation: slidein 10s infinite;
+}
+
+@keyframes slidein {
+  0% {
+    margin-top: 200%;
+  }
+  10% {
+    margin-top: 100%;
+  }
+  50% {
+    margin-top: 0%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+.choices label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+}
+
+.choices input[type='radio'] {
+  appearance: none;
+  margin-right: 25px;
+  width: 2em;
+  height: 2em;
+  border: 3px solid #6231ec;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+.choices input[type='radio']::before {
+  content: '';
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  transform: scale(0);
+  box-shadow: inset 3em 3em #6231ec;
+}
+
+.choices input[type='radio']:checked::before {
+  /* animation: answer 8s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite; */
+}
+
+@keyframes answer {
+  0%,
+  20% {
+    transform: scale(0);
+  }
+  30%,
+  70%,
+  90% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 
 .card {
   margin: 1rem;
   padding: 1.5rem;
-  text-align: left;
-  color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+  border: 0.5px solid #6231ec;
+  border-radius: 74px;
+  max-width: 500px;
+  height: 350px;
+  overflow: hidden;
 }
